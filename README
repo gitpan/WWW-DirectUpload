@@ -1,0 +1,42 @@
+NAME
+    WWW::DirectUpload - Perl module for uploading files to directupload.com
+
+SYNOPSIS
+      use WWW::DirectUpload;
+      my $du = WWW::DirectUpload->new();
+      $du->files(@files);
+      $du->upload();
+
+DESCRIPTION
+    This module allows you to upload files to directupload.com using Perl.
+    Its upload() method will return you the path to the original image and
+    its thumbnail.
+
+    WWW::DirectUpload uses LWP::UserAgent as its base class. So you can use
+    all methods from LWP::UserAgent on WWW::DirectUpload. This allows you to
+    handle your proxies directly via LWP.
+
+Methods
+    * $du->files(files)
+        Use this method to tell WWW::DirectUpload which files you want to
+        upload. A typical list would look like @files = ({file=>"pic1.jpg",
+        tags=>""},{file=>"pic2.png", tags=>"those are my tags"});
+
+    * $du->upload()
+        This method will upload your files. It returns a list of hashrefs of
+        the given files in the order you've passed them to files(). A
+        typical return value would look like
+        ({thumb=>"...",image=>"..."},{thumb=>"...",image=>"..."})
+
+AUTHOR
+    Sebastian Stumpf <sepp@perlhacker.org>
+
+COPYRIGHT
+    Copyright 2007 Sebastian Stumpf. All rights reserved.
+
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
+SEE ALSO
+    LWP::UserAgent(3), HTTP::Request::Common(3).
+

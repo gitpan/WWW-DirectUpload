@@ -1,0 +1,8 @@
+Makefile.PL
+MANIFEST
+README
+Changes
+lib/WWW/DirectUpload.pm
+t/base.t
+bin/directupload
+META.yml                                 Module meta-data (added by MakeMaker)

@@ -1,0 +1,19 @@
+#!/usr/bin/perl -w
+# Copyright 2007 Sebastian Stumpf <mail@sebastianstumpf.de>
+# vim: set sw=4 ts=4
+use strict;
+use warnings;
+use lib qw(lib);
+use WWW::DirectUpload;
+
+die("Usage: $0 images\n") unless @ARGV;
+
+my $du = WWW::DirectUpload->new();
+my @files = map { {file => $_, tags => '' } } @ARGV;
+$du->files(@files);
+
+my @ret = $du->upload();
+foreach my $ref (@ret)
+{
+	print $ref->{'thumb'}, "\n", $ref->{'image'}, "\n\n";
+}
